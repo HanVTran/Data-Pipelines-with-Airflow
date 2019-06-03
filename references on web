@@ -1,1 +1,8 @@
 https://sonra.io/2018/01/01/using-apache-airflow-to-build-a-data-pipeline-on-aws/
+In this section we will cover:
+
+Installation of Airflow
+Defining a database connection using Airflow
+Developing the parameterizable S3 to Redshift operator
+Developing the re-usable Redshift Upsert operator
+Deployment operations
