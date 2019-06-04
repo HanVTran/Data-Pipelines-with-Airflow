@@ -6,3 +6,9 @@ Defining a database connection using Airflow
 Developing the parameterizable S3 to Redshift operator
 Developing the re-usable Redshift Upsert operator
 Deployment operations
+
+==================================
+
+http://dwgeek.com/run-redshift-sql-script-file-using-psql-variable-substitution.html/
+
+Run Redshift SQL Script File using psql Variable Substitution
