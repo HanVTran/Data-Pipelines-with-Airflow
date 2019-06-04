@@ -1,0 +1,30 @@
+https://stackoverflow.com/questions/37822380/templatenotfound-when-using-airflows-postgresoperator-with-jinja-templating-and
+
+For a bit more control, instantiate your DAG with the template_searchpath param, then just use the filename in the operator.
+
+:param template_searchpath: This list of folders (non relative)
+    defines where jinja will look for your templates. Order matters.
+    Note that jinja/airflow includes the path of your DAG file by
+    default
+:type template_searchpath: string or list of stings
+As @yannicksse suggested, applying this practice to your original dag would look like this:
+
+dag = DAG(
+    dag_id='example_csv_to_redshift',
+    schedule_interval=None,
+    template_searchpath=[this_dag_path]  # here
+    default_args=default_args
+)
+
+copy_s3_to_redshift = PostgresOperator(
+    task_id='load_table',
+    sql='copy_to_redshift.sql',  # and here
+    params=dict(
+        AWS_ACCESS_KEY_ID=Variable.get('AWS_ACCESS_KEY_ID'),
+        AWS_SECRET_ACCESS_KEY=Variable.get('AWS_SECRET_ACCESS_KEY')
+    ),
+    postgres_conn_id='postgres_redshift',
+    autocommit=False,
+    dag=dag
+)
+although, personally, I'd put all the templates in a subfolde
