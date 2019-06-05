@@ -18,3 +18,9 @@ sql_smt := q'[<SQL_STATEMENT>]'
 EXECUTE IMMEDIATE sql_smt;
 EXECUTE IMMEDIATE 'commit';
 This might not be the best way but at least working for me at the moment. Please share any other best way if there, to connect to remote Oracle database and execute your queries which can be DDL or DML.
+
+=================================
+
+https://github.com/apache/airflow/blob/master/airflow/contrib/operators/gcp_sql_operator.py
+
+
