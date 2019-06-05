@@ -1,0 +1,5 @@
+https://medium.com/@rajnishkumargarg/dynamic-dag-creation-in-airflow-for-hive-queries-796efe8e4576
+
+https://github.com/rajnish-garg/airflow-dags/tree/master/dags
+
+https://stackoverflow.com/questions/49328051/how-to-generate-multiple-airflow-dags-through-a-single-script
